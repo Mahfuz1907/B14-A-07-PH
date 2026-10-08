@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
 import FoodTicker from "@/Components/FoodTicker/FoodTicker";
+import ProductsProvider from "@/Context/ProductsContext";
 
 
 const hind = Hind_Siliguri({
@@ -18,17 +19,28 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+const getProducts = async() => {
+  const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products', {
+    next: {revalidate: 3600}
+  })
+  const data = await res.json()
+  return data
+}
+
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const products = await getProducts()
   return (
     <html
       lang="bn"
       className='h-full'
     >
       <body className={`${hind.className} min-h-full flex flex-col antialiased`}>
-        <Navbar />
-        <FoodTicker />
-        {children}
-        <Footer />
+        <ProductsProvider initialProducts={products}>
+          <Navbar />
+          <FoodTicker />
+          {children}
+          <Footer />
+        </ProductsProvider>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ const formatedDate = new Intl.DateTimeFormat("bn-BD", {
 
 const Banner = () => {
     return (
-        <div className='bg-[#fafcfa] mx-5 lg:mx-40 my-7.5 border border-[#e1e8e1] rounded-3xl p-4 flex flex-col md:flex-row justify-between items-start'>
+        <div className='bg-[#fafcfa] mx-5 lg:mx-40 my-8 border border-[#e1e8e1] rounded-3xl p-4 flex flex-col md:flex-row justify-between items-start'>
             {/* banner content */}
             <div className='flex flex-col justify-start items-start gap-4 max-w-xl'>
                 <div className='flex flex-col justify-start items-start gap-2'>
@@ -24,7 +24,7 @@ const Banner = () => {
                     </Button>
                     <h1 className='text-4xl font-bold text-[#1d271f]'>আজকের বাজারের দাম এক নজরে</h1>
                 </div>
-                <p className='text-[#1d271f] text-base font-normal'>
+                <p className='text-[#1d271fb3] text-base font-normal'>
                     চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
                 </p>
                 <Link href={'#products'}>

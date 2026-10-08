@@ -5,7 +5,7 @@ import React from 'react';
 
 const getCategories = async() => {
     const res = await fetch('https://api.api-store.workers.dev/api/bazardor/categories', {
-        cache: 'force-cache'
+        next: { revalidate: 3600 }
     })
     const data = await res.json()
     return data

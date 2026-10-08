@@ -5,7 +5,7 @@ import './Ticker.css'
 
 const getFood = async() => {
     const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products', {
-        cache: "force-cache"
+        next: { revalidate: 3600 }
     })
     const data = await res.json()
     return data
