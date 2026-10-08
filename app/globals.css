@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+
+@theme {
+  --font-hind-siliguri: var(--font-hind-siliguri), sans-serif;
+}

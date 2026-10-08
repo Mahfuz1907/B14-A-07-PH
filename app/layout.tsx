@@ -3,12 +3,12 @@ import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
+import FoodTicker from "@/Components/FoodTicker/FoodTicker";
 
 
 const hind = Hind_Siliguri({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["bengali", "latin"],
-  variable: "--font-hind-siliguri",
 })
 
 export const metadata: Metadata = {
@@ -21,11 +21,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en, bn"
-      className={`${hind.className} ${hind.variable} h-full antialiased`}
+      lang="bn"
+      className='h-full'
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`${hind.className} min-h-full flex flex-col antialiased`}>
         <Navbar />
+        <FoodTicker />
         {children}
         <Footer />
       </body>
