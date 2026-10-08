@@ -17,7 +17,7 @@ const Navbar = () => {
             {/* nav head */}
             <div className='py-3 px-5 lg:px-40 flex flex-row justify-between items-center'>
                 {/* logo */}
-                <Link href={'/'} className='flex flex-row justify-start items-center gap-2'>
+                <Link href={'/'} className='flex group flex-row justify-start items-center gap-2'>
                     {/* image */}
                     <div className='px-2 py-1.5 bg-[#05893e] rounded-xl'>
                     <div className='relative overflow-hidden w-6 h-7.5'>
@@ -25,7 +25,7 @@ const Navbar = () => {
                         src={'/logo-icon.png'} 
                         alt='logo' 
                         fill 
-                        className='object-contain brightness-1000 contrast-500'
+                        className='object-contain brightness-2000 contrast-500 group-hover:scale-105'
                         />
                     </div>
                     </div>
