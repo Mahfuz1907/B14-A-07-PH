@@ -34,7 +34,7 @@ const Card = ({product}:CardType) => {
     const pct = -product.change.pct
     return (
         <Link href={`/products/${product.id}`} 
-        className='bg-[#fafcfa] border border-[#e1e8e1] hover:border hover:border-green-600 rounded-2xl p-4 flex flex-col justify-between items-start gap-3'>
+        className='bg-[#fafcfa] border border-[#e1e8e1] hover:border hover:border-[#1a9951] rounded-2xl p-4 flex flex-col justify-between items-start gap-3'>
             {/* title */}
             <div className='flex flex-row justify-start items-start gap-3'>
                 {/* image */}
@@ -45,17 +45,17 @@ const Card = ({product}:CardType) => {
                 {/* title */}
                 <div>
                     <h2 className='text-[#1d271f] text-base font-semibold'>{product.nameBn}</h2>
-                    <p className='text-[#1d271f] text-sm font-light'>প্রতি {unitToBn(product.unit)}</p>
+                    <p className='text-[#1d271f] text-xs font-normal'>প্রতি {unitToBn(product.unit)}</p>
                 </div>
             </div>
             {/* details */}
             <div className='flex flex-row justify-between items-end w-full'>
                 <div className='flex flex-col justify-between items-start gap-1'>
-                    <p className='text-[#1d271f] text-sm font-light'>আজকের দাম</p>
-                    <p className='text-[#1d271f] text-base font-normal'><span className='text-2xl font-bold'>{digitToBn(product.today)}</span> টাকা</p>
+                    <p className='text-[#1d271f] text-xs font-normal'>আজকের দাম</p>
+                    <p className='text-[#1d271f] text-base font-medium'><span className='text-xl font-bold'>{digitToBn(product.today)}</span> টাকা</p>
                 </div>
                 <button 
-                className='flex flex-row justify-between items-center text-sm gap-1 rounded-xl px-2.5 py-1 bg-[#f0f5f0] text-green-600'>
+                className='flex flex-row justify-between items-center text-xs font-semibold gap-1 rounded-xl px-2.5 py-1 bg-[#f0f5f0] text-[#1a9951]'>
                     <TbTriangleInvertedFilled className='text-[10px]' /> 
                     {digitToBn(pct)}% 
                 </button>
