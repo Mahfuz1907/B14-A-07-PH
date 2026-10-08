@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+@plugin "daisyui";
 
 @theme {
   --font-hind-siliguri: var(--font-hind-siliguri), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }

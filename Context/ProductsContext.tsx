@@ -6,17 +6,27 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useStat
 
 interface ProductsContextTypes{
     products: ProductsPromiseTypes[],
-    setProducts: Dispatch<SetStateAction<ProductsPromiseTypes[]>>
+    setProducts: Dispatch<SetStateAction<ProductsPromiseTypes[]>>,
+    sortBy: string,
+    setSortBy: Dispatch<SetStateAction<string>>
 }
 
-export const ProductsContext = createContext<ProductsContextTypes | null>(null)
+export const ProductsContext = createContext<ProductsContextTypes>({
+  products: [],
+  setProducts: () => {},
+  sortBy: 'default',
+  setSortBy: () => {},
+});
 
 const ProductsProvider = ({children, initialProducts}:{children:ReactNode, initialProducts:ProductsPromiseTypes[]}) => {
     const [products, setProducts] = useState<ProductsPromiseTypes[]>(initialProducts)
+    const [sortBy, setSortBy] = useState<string>('default')
 
     const sharedData = {
         products,
-        setProducts
+        setProducts,
+        sortBy,
+        setSortBy
     }
 
     return (

@@ -29,8 +29,9 @@ const unitToBn = (unit: string): string => {
 };
 
 const Food = ({food}:foodTickerType) => {
-    let priceChange = food.change.pct
+    let priceChange:number|string = food.change.pct
     if(food.change.pct < 0) priceChange = -food.change.pct
+    if(food.change.pct === 0) priceChange = priceChange.toFixed(1)
 
     const foodChange = digitToBn(priceChange)
 
@@ -44,8 +45,8 @@ const Food = ({food}:foodTickerType) => {
             <h4>
                 {food.change.dir === 'up' ? <TbTriangleFilled className='text-red-600 text-[10px]' /> 
                 : food.change.dir === 'down' ? <TbTriangleInvertedFilled className='text-green-600 text-[10px]' /> 
-                : '' }</h4>
-            <h4 className='font-semibold tracking-wide'>{food.change.pct > 0 ? `${foodChange}` : `${foodChange}` }%</h4>
+                : '—' }</h4>
+            <h4 className='font-semibold tracking-wide'>{foodChange}%</h4>
         </Link>
     );
 };

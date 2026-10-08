@@ -1,7 +1,6 @@
 import { Button } from '@heroui/react';
 import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import BannerButton from './BannerButton';
 
 const today = new Date()
 const formatedDate = new Intl.DateTimeFormat("bn-BD", {
@@ -27,11 +26,7 @@ const Banner = () => {
                 <p className='text-[#1d271fb3] text-base font-normal'>
                     চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
                 </p>
-                <Link href={'#products'}>
-                    <Button className={'bg-[#05893e] text-white font-semibold text-base rounded-lg hover:bg-[#036c31]'}>
-                        সব পণ্য দেখুন
-                    </Button>
-                </Link>
+                <BannerButton />
             </div>
             {/* banner image */}
             <div className='relative overflow-hidden w-78.75 h-65.75'>

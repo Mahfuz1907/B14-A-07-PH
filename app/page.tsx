@@ -1,3 +1,4 @@
+import AllProducts from "@/Components/AllProducts/AllProducts";
 import Banner from "@/Components/Banner/Banner";
 import PriceDown from "@/Components/PriceDownProducts/PriceDown";
 import PriceUp from "@/Components/PriceUpProducts/PriceUp";
@@ -9,6 +10,7 @@ export default async function Home() {
       <Banner />
       <PriceUp />
       <PriceDown />
+      <AllProducts />
     </div>
   );
 }
