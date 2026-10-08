@@ -13,9 +13,9 @@ const formatedDate = new Intl.DateTimeFormat("bn-BD", {
 
 const Navbar = () => {
     return (
-        <nav className='bg-[#fafcfa] border-b border-[#e1e8e1]'>
+        <nav className='bg-[#fafcfa] border-b border-[#e1e8e1] sticky top-0 z-50'>
             {/* nav head */}
-            <div className='py-3 px-5 lg:px-38.5 flex flex-row justify-between items-center'>
+            <div className='py-3 px-5 lg:px-40 flex flex-row justify-between items-center'>
                 {/* logo */}
                 <Link href={'/'} className='flex flex-row justify-start items-center gap-2'>
                     {/* image */}
@@ -54,7 +54,7 @@ const Navbar = () => {
                 </div>
             </div>
             {/* nav bottom */}
-            <div className='border-t border-[#f0f5f0] py-2 px-5 lg:px-38.5'>
+            <div className='border-t border-[#f0f5f0] py-2 px-5 lg:px-40'>
                 <Categories />
             </div>
         </nav>
