@@ -1,7 +1,7 @@
-import { Button } from '@heroui/react';
 import Image from 'next/image';
 import Categories from './Categories';
 import Link from 'next/link';
+import AuthButton from './AuthButton';
 
 const today = new Date()
 const formatedDate = new Intl.DateTimeFormat("bn-BD", {
@@ -21,6 +21,7 @@ const getCategories = async() => {
 
 const Navbar = async() => {
     const categories = await getCategories()
+    
     return (
         <nav className='bg-[#fafcfa] border-b border-[#e1e8e1] sticky top-0 z-50'>
             {/* nav head */}
@@ -45,22 +46,7 @@ const Navbar = async() => {
                     </div>
                 </Link>
                 {/* auth button */}
-                <div className='flex flex-row justify-end items-center gap-1 sm:gap-4 flex-wrap'>
-                    <Link href={'/sign-in'}> 
-                    <Button 
-                    variant='secondary' 
-                    className={'text-[#1d271f] font-semibold text-base rounded-lg bg-[#fafcfa] hover:bg-gray-300'}>
-                        সাইন ইন
-                    </Button>
-                    </Link>
-
-                    <Link href={'/sign-up'}>
-                    <Button 
-                    className={'bg-[#05893e] text-white font-semibold drop-shadow-md drop-shadow-[#05893e] text-base rounded-lg hover:bg-[#036c31]'}>
-                        সাইন আপ
-                    </Button> 
-                    </Link>
-                </div>
+                <AuthButton />
             </div>
             {/* nav bottom */}
             <div className='border-t border-[#f0f5f0] py-2 px-5 lg:px-40'>

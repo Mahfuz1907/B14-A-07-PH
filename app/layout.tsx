@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className={`${hind.className} min-h-full flex flex-col antialiased`}>
         <ProductsProvider initialProducts={products}>
           <Navbar />
-          <FoodTicker />
+          {/* <FoodTicker /> */}
           {children}
           <Footer />
 

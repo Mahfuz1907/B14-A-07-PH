@@ -1,18 +1,36 @@
 'use client'
 
+import { signUp } from "@/app/lib/auth-client";
 import { ProductsContext } from "@/Context/ProductsContext";
 import {Button, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 
 const SignUpPage = () => {
+    const router = useRouter()
     const {password, setPassword} = useContext(ProductsContext)
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData) as Record<string, string>
-        console.log(userData)
+        
+        const { data, error } = await signUp.email({
+            name: userData.name, 
+            email: userData.email, 
+            password: userData.password,
+        });
+
+        if(data){
+            toast.success('সাইন আপ সফল হয়েছে')
+            router.push('/')
+            return;
+        }else if(error){
+            toast.error('সাইন আপ সফল হয়নি')
+            return;
+        }
     };
     return (
         <div className="mx-auto mt-10 mb-20 text-[#1d271f] flex flex-col justify-between items-center gap-6">

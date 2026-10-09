@@ -1,14 +1,34 @@
 'use client'
 
+import { signIn } from "@/app/lib/auth-client";
 import {Button, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const router = useRouter()
+    const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const userData = Object.fromEntries(formData) as Record<string, string>
-        console.log(userData)
+        
+        const { data, error } = await signIn.email({
+            email: userData.email, 
+            password: userData.password, 
+            rememberMe: true, 
+        });
+
+        if(data){
+            toast.success('সাইন ইন সফল হয়েছে')
+            console.log(data)
+            router.push('/')
+            return;
+        }else if(error){
+            toast.error('সাইন ইন সফল হয়নি')
+            console.log(error)
+            return;
+        }
     };
     return (
         <div className="mx-auto mt-10 mb-20 text-[#1d271f] flex flex-col justify-between items-center gap-6">
