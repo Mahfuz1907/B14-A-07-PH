@@ -32,7 +32,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="bn"
-      className='h-full'
+      className='h-full bg-[#f0f5f0]'
     >
       <body className={`${hind.className} min-h-full flex flex-col antialiased`}>
         <ProductsProvider initialProducts={products}>
