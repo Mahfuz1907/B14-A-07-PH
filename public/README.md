@@ -44,7 +44,6 @@ Endpoints:
 ## 🐣 Basic Requirements (Must Do for Everyone)
 
 - Your app must work on all screen sizes — mobile, tablet, and desktop
-- Make at least 8 Git commits with clear, meaningful messages
 - Add a nice README.md file with your project name, description, technologies used, and features(minimum 5)
 
 ---
@@ -59,42 +58,16 @@ Endpoints:
 
 ---
 
-### 2. ⚖️ The Product Sections (Home Page)
-
-- 🧭 Clicking a card navigates the user to that product’s **Detail Page**.
-
----
-
-### 3. Product Details Page — Layout (`/product/[slug]`)
+### 2. Product Details Page — Layout (`/product/[slug]`)
 
 **Protected route — requires login.**
 
-**Top — Summary:**
+### 3. Category Page
 
-- Emoji + Title
-- Subtitle/description (market summary line)
-- Category tags (e.g. `সবজি`, `চাল`)
-- Unit (`প্রতি কেজি / লিটার / ডজন / পিস`)
-
-**Price - Summary**
-
-- Minimum Price
-- Maximum Price
-- Average Price
-
-**বাজারভিত্তিক আজকের দাম**
-
-- Show all the data like figma based on different Bazar. You can do this section Design like figma or as you want.
-
-### 4. Category Page
-
-- Title + icon
-- **Sort control**: `সাজান: ডিফল্ট | দাম: কম থেকে বেশি | দাম: বেশি থেকে কম` (see C1).
 - **Loading state**: show skeleton / “Loading…” while fetching before the list renders.
-- **Product cards list**: same card design as Home (thumbnail emoji, title e.g. “আলু”, “পেঁয়াজ”, “ঢেঁড়স”, unit e.g. “প্রতি কেজি”, price + change badge).
 - **Empty state** (when category has no items / invalid slug): 404-style message + CTA button **“হোম পেজে ফিরে যান”** (links back to `/`).
 
-### 5. Authentication (`/signin`, `/signup`)
+### 4. Authentication (`/signin`, `/signup`)
 
 - **Sign In**: User Login: The user will show a Login page with a form , so that the user can Log in this application.
   - Show a Title for Login. & Form with following fields ( Email , Password , Login button )
@@ -117,7 +90,7 @@ Endpoints:
 - Show relevant **toast notification** on login / signup / logout / validation error.
 - 💡Don’t implement email verification or forget password method as it will inconvenience the examiner. If you want, you can add these after receiving the assignment result.
 
-### 6. Responsive Design
+### 5. Responsive Design
 
 - The entire website must work correctly on mobile, tablet, and desktop screen sizes (grid collapses correctly, navbar + ticker stays usable, hero stacks, `btn-sm sm:btn-md`, `max-w-6xl` container, etc.).
 
@@ -134,11 +107,7 @@ Endpoints:
 
 # Challenge Requirements — 10 Marks
 
-### C1. - **Sort dropdown**:
-
-“সাজান” → options `ডিফল্ট`, `দাম: কম থেকে বেশি`, `দাম: বেশি থেকে কম` (default `ডিফল্ট`, with chevron icon). Must handle Bengali numerals correctly (sort by numeric value, not string).
-
-### C2. GitHub README
+### C1. GitHub README
 
 - Add a well-designed `README.md` that includes:
   - Project name (বাজার দর / BazarDor)
@@ -146,7 +115,7 @@ Endpoints:
   - Technologies used
   - 5 key features of the project
 
-### C3. - Update Information Feature
+### C2. - Update Information Feature
 
 - In My Profile route there will be an update button. On clicking it, Take user to another route
 - Show user a form with an input field ( Name ), An Update Information button.
@@ -154,26 +123,3 @@ Endpoints:
 Follow this documentation: https://better-auth.com/docs/concepts/users-accounts#update-user
 
 ---
-
-### 🛠️ Technologies to Use
-
-Technology Purpose
-
-- Next.js -> Build the UI
-- App router(Next.js) + Handle page navigation
-- Tailwind CSS + Any component library Styling and responsiveness(DaisyUI, Hero UI)
-- TypeScript / JavaScript
-- BetterAuth
-
-### 🚀 Deployment
-
-Deploy your project on Vercel, Netlify, Cloudflare Pages, or anywhere else before submitting.
-
-## 📬 Submission
-
-Fill in both links before submitting:
-
-- Live Link:
-- GitHub Repository Link:
-
-### Notes : You can use Bengali or English language for core website information or any kind of text.

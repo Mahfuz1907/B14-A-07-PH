@@ -8,7 +8,9 @@ interface ProductsContextTypes{
     products: ProductsPromiseTypes[],
     setProducts: Dispatch<SetStateAction<ProductsPromiseTypes[]>>,
     sortBy: string,
-    setSortBy: Dispatch<SetStateAction<string>>
+    setSortBy: Dispatch<SetStateAction<string>>,
+    password: string,
+    setPassword: Dispatch<SetStateAction<string>>
 }
 
 export const ProductsContext = createContext<ProductsContextTypes>({
@@ -16,17 +18,22 @@ export const ProductsContext = createContext<ProductsContextTypes>({
   setProducts: () => {},
   sortBy: 'default',
   setSortBy: () => {},
+  password: '',
+  setPassword: () => {}
 });
 
 const ProductsProvider = ({children, initialProducts}:{children:ReactNode, initialProducts:ProductsPromiseTypes[]}) => {
     const [products, setProducts] = useState<ProductsPromiseTypes[]>(initialProducts)
     const [sortBy, setSortBy] = useState<string>('default')
+    const [password, setPassword] = useState<string>('')
 
     const sharedData = {
         products,
         setProducts,
         sortBy,
-        setSortBy
+        setSortBy,
+        password,
+        setPassword
     }
 
     return (

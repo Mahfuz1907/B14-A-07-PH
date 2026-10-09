@@ -37,7 +37,7 @@ const Navbar = () => {
                 </Link>
                 {/* auth button */}
                 <div className='flex flex-row justify-end items-center gap-1 sm:gap-4 flex-wrap'>
-                    <Link href={'sign-in'}>
+                    <Link href={'/sign-in'}> 
                     <Button 
                     variant='secondary' 
                     className={'text-[#1d271f] font-semibold text-base rounded-lg bg-[#fafcfa] hover:bg-gray-300'}>
@@ -47,7 +47,7 @@ const Navbar = () => {
 
                     <Link href={'/sign-up'}>
                     <Button 
-                    className={'bg-[#05893e] text-white font-semibold text-base rounded-lg hover:bg-[#036c31]'}>
+                    className={'bg-[#05893e] text-white font-semibold drop-shadow-md drop-shadow-[#05893e] text-base rounded-lg hover:bg-[#036c31]'}>
                         সাইন আপ
                     </Button> 
                     </Link>
