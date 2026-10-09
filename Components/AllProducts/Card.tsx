@@ -31,9 +31,9 @@ const unitToBn = (unit: string): string => {
 
 
 const Card = ({product}:CardType) => {
-    let pct:number|string = product.change.pct
-    if(product.change.pct < 0) pct = -product.change.pct
+    let pct:number|string = Math.abs(product.change.pct)
     if(product.change.pct === 0) pct = pct.toFixed(1)
+        
     return (
         <Link href={`/products/${product.id}`} 
         className='bg-[#fafcfa] border border-[#e1e8e1] hover:border hover:border-[#1a9951] rounded-2xl p-4 flex flex-col justify-between items-start gap-3'>
