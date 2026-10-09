@@ -39,6 +39,21 @@ const unitToBn = (unit: string): string => {
   return unitMap[unit.toLowerCase()] || unit;
 };
 
+
+export async function generateMetadata({params}:ProductPageType){
+    const {id} = await params
+    const product = await getProducts(id)
+
+
+    return {
+        title: `${product.nameBn} — বাজার দর`,
+        icons:{
+            icon: `/logo-icon.png`
+        }
+    }
+}
+
+
 const ProductPage = async({params}:ProductPageType) => {
     const {id} = await params
     const product = await getProducts(id)

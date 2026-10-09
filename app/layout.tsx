@@ -13,7 +13,7 @@ const hind = Hind_Siliguri({
 })
 
 export const metadata: Metadata = {
-  title: "বাজার দর | আজকের দাঁড়ির দাম",
+  title: "বাজার দর — আজকের দাঁড়ির দাম",
   icons:{
     icon: '/logo-icon.png'
   }

@@ -35,6 +35,21 @@ const digitToBn = (num: number | string): string => {
   return num.toString().replace(/[0-9]/g, (digit) => bnDigits[digit] || digit);
 }
 
+
+export async function generateMetadata({params}:CategoryPageTypes){
+    const {id} = await params
+    const catID = id
+    const category = await getCategories(catID)
+
+    return {
+        title: `${category.nameBn} — বাজার দর`,
+        icons:{
+            icon: `/logo-icon.png`
+        }
+    }
+}
+
+
 const CategoryPage = async({params}:CategoryPageTypes) => {
     const {id} = await params
     const catID = id
