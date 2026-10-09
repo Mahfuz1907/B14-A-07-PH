@@ -5,6 +5,7 @@ import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
 import FoodTicker from "@/Components/FoodTicker/FoodTicker";
 import ProductsProvider from "@/Context/ProductsContext";
+import { ToastContainer } from "react-toastify";
 
 
 const hind = Hind_Siliguri({
@@ -40,6 +41,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <FoodTicker />
           {children}
           <Footer />
+
+          <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={true}
+          pauseOnFocusLoss={false}
+          pauseOnHover={false}
+          />
         </ProductsProvider>
       </body>
     </html>

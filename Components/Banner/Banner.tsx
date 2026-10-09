@@ -18,7 +18,7 @@ const Banner = () => {
                 <div className='flex flex-col justify-start items-start gap-2'>
                     <Button 
                     variant='secondary' 
-                    className={'rounded-[14px] bg-[#05893e1a] px-3 py-1 text-[#05893e] text-sm font-medium cursor-text'}>
+                    className={'rounded-[14px] bg-[#05893e1a] px-3 py-1 text-[#05893e] text-sm font-semibold cursor-text'}>
                         {formatedDate}
                     </Button>
                     <h1 className='text-4xl font-bold text-[#1d271f]'>আজকের বাজারের দাম এক নজরে</h1>
