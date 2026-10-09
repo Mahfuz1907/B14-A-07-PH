@@ -11,7 +11,16 @@ const formatedDate = new Intl.DateTimeFormat("bn-BD", {
     year: "numeric"
 }).format(today)
 
-const Navbar = () => {
+const getCategories = async() => {
+    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/categories', {
+        next: { revalidate: 3600 }
+    })
+    const data = await res.json()
+    return data
+}
+
+const Navbar = async() => {
+    const categories = await getCategories()
     return (
         <nav className='bg-[#fafcfa] border-b border-[#e1e8e1] sticky top-0 z-50'>
             {/* nav head */}
@@ -55,7 +64,7 @@ const Navbar = () => {
             </div>
             {/* nav bottom */}
             <div className='border-t border-[#f0f5f0] py-2 px-5 lg:px-40'>
-                <Categories />
+                <Categories categories={categories} />
             </div>
         </nav>
     );
