@@ -4,7 +4,7 @@ import { updateUser, useSession } from '@/app/lib/auth-client';
 import { Button, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 const UpdateForm = () => {
     const {data:session} = useSession()

@@ -5,8 +5,8 @@ import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
 import FoodTicker from "@/Components/FoodTicker/FoodTicker";
 import ProductsProvider from "@/Context/ProductsContext";
-import { ToastContainer } from "react-toastify";
 import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 
 
 const hind = Hind_Siliguri({
@@ -40,22 +40,18 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className={`${hind.className} min-h-screen flex flex-col antialiased bg-[#f0f5f0]`}>
         <ProductsProvider initialProducts={products}>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
           <Suspense fallback={null}>
           <Navbar />
-          {/* <FoodTicker /> */}
+          <FoodTicker />
           <main className="grow">
             {children}
           </main>
           </Suspense>
           <Footer />
-
-          <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          hideProgressBar={true}
-          pauseOnFocusLoss={false}
-          pauseOnHover={false}
-          />
         </ProductsProvider>
       </body>
     </html>

@@ -4,8 +4,8 @@ import { signOut } from '@/app/lib/auth-client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import toast from 'react-hot-toast';
 import { FaCaretDown, FaUser } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 
 interface SessionTypes{
     userData: {

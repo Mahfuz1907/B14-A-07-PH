@@ -4,7 +4,7 @@ import { signIn } from "@/app/lib/auth-client";
 import {Button, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const SignInForm = () => {
     const router = useRouter()

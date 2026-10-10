@@ -2,9 +2,9 @@
 
 import { signOut, useSession } from '@/app/lib/auth-client';
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
 import {Button, Spinner} from "@heroui/react";
 import Link from 'next/link';
+import toast from 'react-hot-toast';
 
 const ProfileContent = () => {
     const {data:session, isPending} = useSession()

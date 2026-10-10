@@ -6,7 +6,7 @@ import {Button, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const SignUpForm = () => {
     const router = useRouter()
