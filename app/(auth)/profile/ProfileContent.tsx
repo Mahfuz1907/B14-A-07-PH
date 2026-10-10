@@ -3,11 +3,11 @@
 import { signOut, useSession } from '@/app/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import {Button} from "@heroui/react";
+import {Button, Spinner} from "@heroui/react";
 import Link from 'next/link';
 
 const ProfileContent = () => {
-    const {data:session} = useSession()
+    const {data:session, isPending} = useSession()
     const router = useRouter()
     const profileIcon = session?.user?.name.trim().split("")[0].toUpperCase()
 
@@ -23,7 +23,12 @@ const ProfileContent = () => {
                 <div className='flex flex-row justify-between items-start w-full lg:gap-50'>
                     <div className='flex flex-row flex-wrap justify-start items-center gap-4'>
                     <button className='text-2xl font-bold text-[#fafcfa] bg-[#05893e] px-8 py-1 rounded-2xl'>
-                        {profileIcon}
+                        {isPending ? (
+                            <div className="flex flex-col items-center gap-2">
+                                <Spinner color="current" />
+                                <span className="text-xs text-muted">Current</span>
+                            </div>
+                        ) : profileIcon}
                     </button>
                     <div>
                         <h1 className='text-xl font-normal'>{session?.user?.name}</h1>
