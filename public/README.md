@@ -55,11 +55,4 @@
   - Technologies used
   - 5 key features of the project
 
-### C2. - Update Information Feature
-
-- In My Profile route there will be an update button. On clicking it, Take user to another route
-- Show user a form with an input field ( Name ), An Update Information button.
-
-Follow this documentation: https://better-auth.com/docs/concepts/users-accounts#update-user
-
 ---

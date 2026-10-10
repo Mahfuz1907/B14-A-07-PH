@@ -1,24 +1,38 @@
 'use client'
 
-import { useSession } from '@/app/lib/auth-client';
+import { updateUser, useSession } from '@/app/lib/auth-client';
 import { Button, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const UpdateName = () => {
     const {data:session} = useSession()
+    const router = useRouter()
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
             const userData = Object.fromEntries(formData) as Record<string, string>
     
-            console.log(userData)
+            const {data, error} = await updateUser({
+                name: userData.name
+            })
+
+            if(data){
+                toast.success('নাম হালনাগাদ সফল হয়েছে')
+                router.push('/profile')
+                return;
+            }else if(error){
+                toast.error('নাম হালনাগাদ সফল হয়নি')
+                return;
+            }
     };
 
     return (
-        <div className='bg-[#fafcfa] border border-[#e1e8e1] rounded-2xl p-6 w-full flex flex-col justify-center items-start gap-2'>
+        <div className='bg-[#fafcfa] border border-[#e1e8e1] mx-5 lg:mx-auto lg:w-176 mt-10 rounded-2xl p-6 flex flex-col justify-center items-start gap-8'>
             <h1 className='text-lg font-semibold'>নাম হালনাগাদ করুন</h1>
-            <Form className="flex flex-col gap-4 w-full" onSubmit={onSubmit}>
+            <Form className="flex flex-col gap-8 w-full" onSubmit={onSubmit}>
                 <TextField
                     name="name"
                     type="text"

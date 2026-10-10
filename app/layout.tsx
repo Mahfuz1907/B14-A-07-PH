@@ -37,11 +37,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className='h-full bg-[#f0f5f0]'
       style={{ backgroundColor: '#f0f5f0' }}
     >
-      <body className={`${hind.className} min-h-full flex flex-col antialiased bg-[#f0f5f0]`}>
+      <body className={`${hind.className} min-h-screen flex flex-col antialiased bg-[#f0f5f0]`}>
         <ProductsProvider initialProducts={products}>
           <Navbar />
           {/* <FoodTicker /> */}
-          {children}
+          <main className="grow">
+            {children}
+          </main>
+          
           <Footer />
 
           <ToastContainer
