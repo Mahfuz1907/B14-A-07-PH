@@ -3,6 +3,8 @@ import Banner from "@/Components/Banner/Banner";
 import PriceDown from "@/Components/PriceDownProducts/PriceDown";
 import PriceUp from "@/Components/PriceUpProducts/PriceUp";
 
+export const dynamic = 'force-dynamic';
+
 
 export default async function Home() {
   return (
