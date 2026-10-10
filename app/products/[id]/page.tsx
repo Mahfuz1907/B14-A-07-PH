@@ -9,7 +9,7 @@ interface ProductPageType{
 }
 
 const getProducts = async(id:number) => {
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products/${id}`, {
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${id}`, {
         next: {revalidate: 3600}
     })
     const data = await res.json()

@@ -12,7 +12,7 @@ const formatedDate = new Intl.DateTimeFormat("bn-BD", {
 }).format(today)
 
 const getCategories = async() => {
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/categories', {
+    const res = await fetch('https://openapi.programming-hero.com/api/bazardor/categories', {
         next: { revalidate: 3600 }
     })
     const data = await res.json()

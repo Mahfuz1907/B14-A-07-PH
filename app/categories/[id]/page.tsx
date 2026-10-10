@@ -8,7 +8,7 @@ interface CategoryPageTypes{
 
 const getCategories = async (id:string) => {
     if(!id) return null
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/categories/${id}`,{
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/categories/${id}`,{
         next: {revalidate: 3600}
     })
     const data = await res.json()
@@ -17,7 +17,7 @@ const getCategories = async (id:string) => {
 
 const getCatProducts = async (id:string) => {
     if(!id) return null
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products?category=${id}`,{
+    const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products?category=${id}`,{
         next: {revalidate: 3600}
     })
     const data = await res.json()

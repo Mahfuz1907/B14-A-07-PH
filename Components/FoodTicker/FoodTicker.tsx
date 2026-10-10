@@ -4,7 +4,7 @@ import Food from './Food';
 import './Ticker.css'
 
 const getFood = async() => {
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products', {
+    const res = await fetch('https://openapi.programming-hero.com/api/bazardor/products', {
         next: { revalidate: 3600 }
     })
     const data = await res.json()
