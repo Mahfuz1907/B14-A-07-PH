@@ -15,6 +15,7 @@ const FoodTicker = async() => {
     const foods = await getFood()
 
     return (
+        <div className='overflow-hidden'>
         <div className='bg-[#fafcfa] border-b border-[#e1e8e1] animate-marquee whitespace-nowrap flex flex-row items-center gap-4'>
             {
                 foods.map((food:ProductsPromiseTypes) => 
@@ -28,6 +29,7 @@ const FoodTicker = async() => {
                     <Food key={food.id} food={food} />
                 )
             }
+        </div>
         </div>
     );
 };
