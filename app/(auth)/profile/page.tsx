@@ -5,8 +5,9 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import {Button} from "@heroui/react";
 import Link from 'next/link';
+import { Suspense } from 'react';
 
-const ProfilePage = () => {
+const ProfileContent = () => {
     const {data:session} = useSession()
     const router = useRouter()
     const profileIcon = session?.user?.name.trim().split("")[0].toUpperCase()
@@ -58,4 +59,10 @@ const ProfilePage = () => {
     );
 };
 
-export default ProfilePage;
+export default function ProfilePage () {
+    return (
+        <Suspense fallback={<div className="p-10 text-center">লোডিং...</div>}>
+            <ProfileContent />
+        </Suspense>
+    )
+}
