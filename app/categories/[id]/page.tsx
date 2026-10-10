@@ -2,8 +2,6 @@ import React from 'react';
 import SortButton from './SortButton';
 import Products from './Products';
 
-export const instant = false;
-
 interface CategoryPageTypes{
     params: Promise<{id:string}>
 }

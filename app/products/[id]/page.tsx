@@ -4,8 +4,6 @@ import { TbTriangleFilled, TbTriangleInvertedFilled } from 'react-icons/tb';
 import { TfiAngleRight } from 'react-icons/tfi';
 import Details from './Details';
 
-export const instant = false
-
 interface ProductPageType{
     params: Promise<{id: number}>
 }
