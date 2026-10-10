@@ -6,6 +6,7 @@ import Footer from "@/Components/Footer/Footer";
 import FoodTicker from "@/Components/FoodTicker/FoodTicker";
 import ProductsProvider from "@/Context/ProductsContext";
 import { ToastContainer } from "react-toastify";
+import { Suspense } from "react";
 
 
 const hind = Hind_Siliguri({
@@ -39,12 +40,13 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className={`${hind.className} min-h-screen flex flex-col antialiased bg-[#f0f5f0]`}>
         <ProductsProvider initialProducts={products}>
+          <Suspense fallback={null}>
           <Navbar />
           {/* <FoodTicker /> */}
           <main className="grow">
             {children}
           </main>
-          
+          </Suspense>
           <Footer />
 
           <ToastContainer
