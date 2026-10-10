@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import AllProducts from "@/Components/AllProducts/AllProducts";
 import Banner from "@/Components/Banner/Banner";
 import PriceDown from "@/Components/PriceDownProducts/PriceDown";
