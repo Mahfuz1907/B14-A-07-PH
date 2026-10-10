@@ -4,7 +4,6 @@ import { signOut } from '@/app/lib/auth-client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import { BsBoxArrowLeft } from 'react-icons/bs';
 import { FaCaretDown, FaUser } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
@@ -42,7 +41,7 @@ const AfterLogIn = ({userData}:SessionTypes) => {
                         }
                     })}
                     className='flex flex-row justify-start items-center gap-2 px-3 py-1 rounded-lg text-[#d03739] cursor-pointer hover:bg-gray-200'>
-                        <BsBoxArrowLeft />সাইন আউট
+                        ↩ সাইন আউট
                     </button>
                 </div>
             </div>

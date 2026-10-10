@@ -10,31 +10,17 @@
 
 ---
 
-## 🐣 Basic Requirements (Must Do for Everyone)
-
-- Your app must work on all screen sizes — mobile, tablet, and desktop
-- Add a nice README.md file with your project name, description, technologies used, and features(minimum 5)
-
----
-
 # 🔧 Main Requirements — 50 Marks
 
-### 1. 🔝 Navbar
-
-- Design the Navbar exactly like the Figma.
-- **Right-side auth buttons**: `সাইন ইন` + `সাইন আপ`. When logged in, show profile / sign-out instead.
-
----
-
-### 2. Product Details Page — Layout (`/product/[slug]`)
+### 1. Product Details Page — Layout (`/product/[slug]`)
 
 **Protected route — requires login.**
 
-### 3. Category Page
+### 2. Category Page
 
 - **Empty state** (when category has no items / invalid slug): 404-style message + CTA button **“হোম পেজে ফিরে যান”** (links back to `/`).
 
-### 4. Authentication (`/signin`, `/signup`)
+### 3. Authentication (`/signin`, `/signup`)
 
 - **Sign In**: User Login: The user will show a Login page with a form , so that the user can Log in this application.
   - If the user Login successfully then navigate him to his Home page. If not, show him an error with toast / error message anywhere in the form.
@@ -44,8 +30,6 @@
   - If not, show him an error with toast / error message anywhere in the form.
 
 - Use **BetterAuth** (email/password + Google + GitHub), toast on success/error, skeleton loaders.
-- Show relevant **toast notification** on login / signup / logout / validation error.
-- 💡Don’t implement email verification or forget password method as it will inconvenience the examiner. If you want, you can add these after receiving the assignment result.
 
 ### 5. Responsive Design
 
