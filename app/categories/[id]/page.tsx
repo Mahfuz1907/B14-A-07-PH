@@ -1,6 +1,7 @@
 import React from 'react';
 import SortButton from './SortButton';
 import Products from './Products';
+import { notFound } from 'next/navigation';
 
 interface CategoryPageTypes{
     params: Promise<{id:string}>
@@ -36,8 +37,16 @@ const digitToBn = (num: number | string): string => {
 
 export async function generateMetadata({params}:CategoryPageTypes){
     const {id} = await params
-    const catID = id
-    const category = await getCategories(catID)
+    const category = await getCategories(id)
+
+    if(!category || !category.nameBn){
+        return {
+            title: 'ক্যাটাগরি নেই — বাজার দর',
+            icons: {
+                icon: '/logo-icon.png'
+            }
+        }
+    }
 
     return {
         title: `${category.nameBn} — বাজার দর`,
@@ -50,9 +59,13 @@ export async function generateMetadata({params}:CategoryPageTypes){
 
 const CategoryPage = async({params}:CategoryPageTypes) => {
     const {id} = await params
-    const catID = id
-    const category = await getCategories(catID)
-    const products = await getCatProducts(catID)
+    const category = await getCategories(id)
+    const products = await getCatProducts(id)
+
+    if(!category || !category.nameBn){
+        notFound()
+    }
+
     return (
         <div className='mx-5 lg:mx-40 mt-6 mb-29 flex flex-col justify-center items-start gap-6'>
             {/* category information */}

@@ -31,7 +31,7 @@ const Table = ({product}:TableType) => {
                 </thead>
                 <tbody className='text-[#1d271f] text-sm font-normal'>
                     {
-                        product.markets.map((market, index) => 
+                        product?.markets?.map((market, index) => 
                         <tr key={market.market} className={`${index % 2 === 0 ? 'bg-[#fafcfa]' : 'bg-[#f0f5f0]'}`}>
                             <td className={`font-medium ${index === product.markets.length - 1 ? '' : 'border-b border-[#1d271f]'}`}>{market.market}</td>
                             <td className={`${index === product.markets.length - 1 ? '' : 'border-b border-[#1d271f]'}`}>{market.division}</td>

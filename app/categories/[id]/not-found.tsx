@@ -1,27 +1,10 @@
-'use client'
-
-import { ProductsPromiseTypes } from '@/type';
-import React, { useContext } from 'react';
-import Card from './Card';
-import { ProductsContext } from '@/Context/ProductsContext';
 import { FolderX } from 'lucide-react';
 import Link from 'next/link';
+import React from 'react';
 
-interface ProductsCard{
-    products: ProductsPromiseTypes[]
-}
-
-const Products = ({products}:ProductsCard) => {
-    const {sortBy} = useContext(ProductsContext)
-    const sortedArray = (sortBy === 'lowToHigh' ? products.sort((a, b) => a.today - b.today)
-                       : sortBy === 'highToLow' ? products.sort((a, b) => b.today - a.today)
-                                                : products)
-
+const CategoryNotFound = () => {
     return (
-        <div className='w-full'>
-            {
-            products.length === 0 ? (
-                <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-12">
+        <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-12">
                     {/* Icon Container */}
                     <div className="w-20 h-20 bg-[#e8f0e9] text-[#1d271f] rounded-full flex items-center justify-center mb-6 shadow-sm">
                         <FolderX className="w-10 h-10" />
@@ -50,13 +33,7 @@ const Products = ({products}:ProductsCard) => {
                         হোম পেজে ফিরে যান
                     </Link>
                 </div>
-            ):(
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between items-start w-full gap-4'>
-                {sortedArray.map((product:ProductsPromiseTypes) => <Card key={product.id} product={product} />)}
-            </div>
-            )}
-        </div>
     );
 };
 
-export default Products;
+export default CategoryNotFound;

@@ -24,15 +24,15 @@ const unitToBn = (unit: string): string => {
     pcs: "পিস",
     piece: "পিস"
   };
-  return unitMap[unit.toLowerCase()] || unit;
+  return unitMap[unit?.toLowerCase()] || unit;
 };
 
 const Details = ({product}:DetailsType) => {
-    const minPrices = product.markets.map((market) => market.min)
+    const minPrices = product?.markets?.map((market) => market.min) || []
     const min = Math.min(...minPrices)
-    const maxPrices = product.markets.map((market) => market.max)
+    const maxPrices = product?.markets?.map((market) => market.max) || []
     const max = Math.max(...maxPrices)
-    const averageArray = product.markets.map((market) => (market.max + market.min)/2)
+    const averageArray = product?.markets?.map((market) => (market.max + market.min)/2) || []
     const summation = averageArray.reduce((current, total) => total + current, 0)
     const avg = Math.round(summation/(averageArray.length))
 

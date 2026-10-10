@@ -3,6 +3,7 @@ import React from 'react';
 import { TbTriangleFilled, TbTriangleInvertedFilled } from 'react-icons/tb';
 import { TfiAngleRight } from 'react-icons/tfi';
 import Details from './Details';
+import { notFound } from 'next/navigation';
 
 interface ProductPageType{
     params: Promise<{id: number}>
@@ -21,7 +22,7 @@ const digitToBn = (num: number | string): string => {
     "0": "০", "1": "১", "2": "২", "3": "৩", "4": "৪",
     "5": "৫", "6": "৬", "7": "৭", "8": "৮", "9": "৯", ".": "."
   };
-  return num.toString().replace(/[0-9]/g, (digit) => bnDigits[digit] || digit);
+  return num?.toString().replace(/[0-9]/g, (digit) => bnDigits[digit] || digit);
 }
 
 
@@ -34,13 +35,22 @@ const unitToBn = (unit: string): string => {
     pcs: "পিস",
     piece: "পিস"
   };
-  return unitMap[unit.toLowerCase()] || unit;
+  return unitMap[unit?.toLowerCase()] || unit;
 };
 
 
 export async function generateMetadata({params}:ProductPageType){
     const {id} = await params
     const product = await getProducts(id)
+
+    if(!product || !product.nameBn){
+        return {
+            title: `পণ্য নেই — বাজার দর`,
+            icons:{
+                icon: `/logo-icon.png`
+            }
+        }
+    }
 
 
     return {
@@ -56,10 +66,14 @@ const ProductPage = async({params}:ProductPageType) => {
     const {id} = await params
     const product = await getProducts(id)
 
-    let pct:number|string = Math.abs(product.change.pct)
-    if(product.change.pct === 0) pct = pct.toFixed(1)
+    if(!product || !product.nameBn){
+        notFound()
+    }
 
-    const priceIncrease = Math.abs(Math.round((product.today * product.change.pct) / 100))
+    let pct:number|string = Math.abs(product?.change?.pct)
+    if(product?.change?.pct === 0) pct = pct.toFixed(1)
+
+    const priceIncrease = Math.abs(Math.round((product?.today * product?.change?.pct) / 100))
 
     return (
         <div className='mx-5 lg:mx-40 mt-6 mb-36 flex flex-col items-start justify-center gap-6'>
@@ -83,8 +97,8 @@ const ProductPage = async({params}:ProductPageType) => {
                         </div>
                         <p className='text-[#1d271fb3] text-sm font-normal'>
                             গতকালের তুলনায় আজ দাম 
-                            <span className='font-semibold'> {product.change.dir === 'up' ? 'বেড়েছে' : product.change.dir === 'down' ? 'কমেছে' : 'অপরিবর্তিত'} </span>
-                            <span> {product.change.dir === 'flat' ? '' : `${digitToBn(priceIncrease)}`}  টাকা</span>
+                            <span className='font-semibold'> {product?.change?.dir === 'up' ? 'বেড়েছে' : product?.change?.dir === 'down' ? 'কমেছে' : 'অপরিবর্তিত'} </span>
+                            <span> {product?.change?.dir === 'flat' ? '' : `${digitToBn(priceIncrease)}`}  টাকা</span>
                         </p>
                     </div>
                 </div>
@@ -95,9 +109,9 @@ const ProductPage = async({params}:ProductPageType) => {
                     <p className='text-[#1d271fb3] text-sm font-normal'> টাকা / {unitToBn(product.unit)}</p>
                     <p 
                     className={`flex flex-row justify-between items-center text-sm font-semibold gap-1 
-                    ${product.change.dir === 'up' ? 'text-[#d03739]' : product.change.dir === 'down' ? 'text-[#1a9951]' : 'text-[#1d271f]'}`}>
-                        {product.change.dir === 'up' ? <TbTriangleFilled className='text-[10px]' /> :
-                        product.change.dir === 'down' ? <TbTriangleInvertedFilled className='text-[10px]' /> : '—'} 
+                    ${product?.change?.dir === 'up' ? 'text-[#d03739]' : product?.change?.dir === 'down' ? 'text-[#1a9951]' : 'text-[#1d271f]'}`}>
+                        {product?.change?.dir === 'up' ? <TbTriangleFilled className='text-[10px]' /> :
+                        product?.change?.dir === 'down' ? <TbTriangleInvertedFilled className='text-[10px]' /> : '—'} 
                         {digitToBn(pct)}% 
                     </p>
                 </div>
