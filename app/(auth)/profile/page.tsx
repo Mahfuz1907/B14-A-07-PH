@@ -1,13 +1,14 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { signOut, useSession } from '@/app/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import {Button} from "@heroui/react";
 import Link from 'next/link';
-import { Suspense } from 'react';
 
-const ProfileContent = () => {
+const ProfilePage = () => {
     const {data:session} = useSession()
     const router = useRouter()
     const profileIcon = session?.user?.name.trim().split("")[0].toUpperCase()
@@ -59,10 +60,4 @@ const ProfileContent = () => {
     );
 };
 
-export default function ProfilePage () {
-    return (
-        <Suspense fallback={<div className="p-10 text-center">লোডিং...</div>}>
-            <ProfileContent />
-        </Suspense>
-    )
-}
+export default ProfilePage;

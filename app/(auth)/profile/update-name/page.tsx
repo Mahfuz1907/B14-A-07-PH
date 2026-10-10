@@ -1,12 +1,14 @@
 'use client'
 
+export const dynamic = 'force-dynamic';
+
 import { updateUser, useSession } from '@/app/lib/auth-client';
 import { Button, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 
-const UpdateNameContent = () => {
+const UpdateName = () => {
     const {data:session} = useSession()
     const router = useRouter()
 
@@ -62,11 +64,4 @@ const UpdateNameContent = () => {
     );
 };
 
-
-export default function UpdateName () {
-    return (
-        <Suspense fallback={<div className="p-10 text-center">লোডিং...</div>}>
-            <UpdateNameContent />
-        </Suspense>
-    )
-}
+export default UpdateName;
