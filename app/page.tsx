@@ -6,11 +6,13 @@ import PriceUp from "@/Components/PriceUpProducts/PriceUp";
 
 export default async function Home() {
   return (
-    <div>
+    <div className="bg-[#f0f5f0] min-h-screen">
+      <div className="bg-[#f0f5f0] w-full h-8"></div>
       <Banner />
       <PriceUp />
       <PriceDown />
       <AllProducts />
+      <div className="bg-[#f0f5f0] w-full h-18"></div>
     </div>
   );
 }

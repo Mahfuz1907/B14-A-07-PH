@@ -1,15 +1,20 @@
 'use client'
 
-import { signOut, useSession } from '@/app/lib/auth-client';
+import { useSession } from '@/app/lib/auth-client';
 import { Button, Spinner } from '@heroui/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
-import { toast } from 'react-toastify';
+import AfterLogIn from './AfterLogIn';
+
+
+interface SessionTypes{
+    name: string,
+    email: string
+}
 
 const AuthButton = () => {
     const { data: session, isPending } = useSession()
-    const router = useRouter()
+    const userData = session?.user
 
     if(isPending){
         return (
@@ -23,20 +28,7 @@ const AuthButton = () => {
     return (
         <div className='flex flex-row justify-end items-center gap-1 sm:gap-4 flex-wrap'>
             {
-                session?.user ? <>
-                <Button 
-                onClick={() => signOut({
-                    fetchOptions: {
-                        onSuccess: () => {
-                        toast.success('সাইন আউট সফল হয়েছে')
-                        router.push("/sign-in"); // redirect to login page
-                        },
-                    },
-                })} 
-                className={'bg-[#05893e] text-white font-semibold drop-shadow-md drop-shadow-[#05893e] text-base rounded-lg hover:bg-[#036c31]'}>
-                সাইন আউট
-                </Button>
-                </> : 
+                session?.user ? <AfterLogIn userData={userData as SessionTypes} /> : 
                 <>
                 <Link href={'/sign-in'}> 
                 <Button 

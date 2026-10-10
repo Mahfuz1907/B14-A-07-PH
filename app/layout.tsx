@@ -32,10 +32,12 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const products = await getProducts()
   return (
     <html
+      data-theme='light'
       lang="bn"
       className='h-full bg-[#f0f5f0]'
+      style={{ backgroundColor: '#f0f5f0' }}
     >
-      <body className={`${hind.className} min-h-full flex flex-col antialiased`}>
+      <body className={`${hind.className} min-h-full flex flex-col antialiased bg-[#f0f5f0]`}>
         <ProductsProvider initialProducts={products}>
           <Navbar />
           {/* <FoodTicker /> */}
