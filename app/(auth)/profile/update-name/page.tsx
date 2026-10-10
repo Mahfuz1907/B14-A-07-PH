@@ -3,10 +3,10 @@
 import { updateUser, useSession } from '@/app/lib/auth-client';
 import { Button, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { toast } from 'react-toastify';
 
-const UpdateName = () => {
+const UpdateNameContent = () => {
     const {data:session} = useSession()
     const router = useRouter()
 
@@ -62,4 +62,11 @@ const UpdateName = () => {
     );
 };
 
-export default UpdateName;
+
+export default function UpdateName () {
+    return (
+        <Suspense fallback={<div className="p-10 text-center">লোডিং...</div>}>
+            <UpdateNameContent />
+        </Suspense>
+    )
+}

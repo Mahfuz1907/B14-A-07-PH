@@ -2,7 +2,6 @@
 
 import { signOut, useSession } from '@/app/lib/auth-client';
 import { useRouter } from 'next/navigation';
-import React from 'react';
 import { toast } from 'react-toastify';
 import {Button} from "@heroui/react";
 import Link from 'next/link';
