@@ -31,7 +31,7 @@ const digitToBn = (num: number | string): string => {
     "0": "০", "1": "১", "2": "২", "3": "৩", "4": "৪",
     "5": "৫", "6": "৬", "7": "৭", "8": "৮", "9": "৯", ".": "."
   };
-  return num.toString().replace(/[0-9]/g, (digit) => bnDigits[digit] || digit);
+  return num?.toString().replace(/[0-9]/g, (digit) => bnDigits[digit] || digit);
 }
 
 
@@ -67,7 +67,8 @@ const CategoryPage = async({params}:CategoryPageTypes) => {
     }
 
     return (
-        <div className='mx-5 lg:mx-40 mt-6 mb-29 flex flex-col justify-center items-start gap-6'>
+        <div className='bg-[#f0f5f0] pt-6 pb-29'>
+        <div className='mx-5 lg:mx-40 flex flex-col justify-center items-start gap-6 bg-[#f0f5f0]'>
             {/* category information */}
             <div className='bg-[#fafcfa] w-full border border-[#e1e8e1] rounded-2xl p-5 flex flex-row justify-start items-center gap-3'>
                 {/* image */}
@@ -88,6 +89,7 @@ const CategoryPage = async({params}:CategoryPageTypes) => {
                 {/* products list */}
                 <Products products={products} />
             </div>
+        </div>
         </div>
     );
 };

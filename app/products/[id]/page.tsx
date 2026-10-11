@@ -76,7 +76,8 @@ const ProductPage = async({params}:ProductPageType) => {
     const priceIncrease = Math.abs(Math.round((product?.today * product?.change?.pct) / 100))
 
     return (
-        <div className='mx-5 lg:mx-40 mt-6 mb-36 flex flex-col items-start justify-center gap-6'>
+        <div className='bg-[#f0f5f0] pt-6 pb-36'>
+        <div className='mx-5 lg:mx-40 flex flex-col items-start justify-center gap-6 bg-[#f0f5f0]'>
             {/* navigation */}
             <p className='text-[#1d271f] text-sm font-normal flex flex-row justify-start items-center gap-2'>
                 <Link href={'/'} className='hover:underline'>হোম</Link> 
@@ -118,6 +119,7 @@ const ProductPage = async({params}:ProductPageType) => {
             </div>
             {/* whole details */}
             <Details product={product} />
+        </div>
         </div>
     );
 };
