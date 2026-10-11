@@ -30,7 +30,8 @@ const UpdateForm = () => {
         };
     
     return (
-        <div className='bg-[#fafcfa] border border-[#e1e8e1] mx-5 lg:mx-auto lg:w-176 mt-10 rounded-2xl p-6 flex flex-col justify-center items-start gap-8'>
+        <div className='bg-[#f0f5f0] pt-10'>
+        <div className='bg-[#fafcfa] border border-[#e1e8e1] mx-5 lg:mx-auto lg:w-176 rounded-2xl p-6 flex flex-col justify-center items-start gap-8'>
                     <h1 className='text-lg font-semibold'>নাম হালনাগাদ করুন</h1>
                     <Form className="flex flex-col gap-8 w-full" onSubmit={onSubmit}>
                         <TextField
@@ -59,6 +60,7 @@ const UpdateForm = () => {
                         </Button>
                     </Form>
                 </div>
+            </div>
     );
 };
 

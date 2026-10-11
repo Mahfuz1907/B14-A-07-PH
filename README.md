@@ -8,10 +8,10 @@
 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
-- **Styling & UI:** Tailwind CSS, DaisyUI, HeroUI (React Aria)
-- **Icons:** Lucide React, Font Awesome, React Icons
+- **Styling & UI:** Tailwind CSS, DaisyUI, HeroUI
+- **Icons:** Lucide React, React Icons, gravity UI Icons
 - **Authentication:** Better Auth
-- **State Management & React Hooks:** Context API, React Hooks (`useState`, `useEffect`)
+- **State Management & React Hooks:** Context API, React Hooks
 
 ---
 
@@ -39,8 +39,8 @@
 First, clone the repository and install the dependencies:
 
 ```bash
-git clone <your-repository-url>
-cd bazardor
+git clone https://github.com/Mahfuz1907/B14-A-07-PH.git
+cd B14-A-07-PH
 npm install
 npm run dev
 ```
