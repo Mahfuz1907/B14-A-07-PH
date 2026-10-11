@@ -12,7 +12,8 @@ const ProfileContent = () => {
     const profileIcon = session?.user?.name.trim().split("")[0].toUpperCase()
 
     return (
-        <div className='mt-10 text-[#1d271f] mx-5 lg:mx-auto lg:w-176 flex flex-col justify-center items-start gap-6 bg-[#f0f5f0]'>
+        <div className='bg-[#f0f5f0] pt-10'>
+        <div className='text-[#1d271f] mx-5 lg:mx-auto lg:w-176 flex flex-col justify-center items-start gap-6 bg-[#f0f5f0]'>
             {/* profile title */}
             <div className='flex flex-col justify-between items-start gap-1'>
                 <h1 className='text-2xl font-bold'>আমার প্রোফাইল</h1>
@@ -60,6 +61,7 @@ const ProfileContent = () => {
                 </Link>
             </div>
         </div>
+    </div>
     );
 };
 
